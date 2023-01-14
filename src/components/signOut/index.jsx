@@ -1,9 +1,9 @@
-import { auth } from "../../services/firebaseConfig"
-import { BiLogOut } from 'react-icons/bi'
+import { auth } from "../../services/firebaseConfig";
+
 export const SignOut = () => {
     return(
         auth.currentUser && (
-            <button onClick={() => auth.SingOut}><BiLogOut className="btLogOut"/></button>
+            <button onClick={() => auth.signOut()}>Sair</button>
         )
     )
 }
