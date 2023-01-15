@@ -2,7 +2,7 @@ import { addDoc, collection, limit, orderBy, query, serverTimestamp } from "fire
 import { auth, dbApp } from "../../services/firebaseConfig";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { SignOut } from "../SignOut";
-//import { ChatStyle } from "./styles";
+import { ChatStyle } from "./styles";
 import { Menssage } from "../Menssage";
 import { useState } from "react";
 
@@ -23,9 +23,10 @@ export const ChatRoom = () => {
             photoURL,
             createdAt: serverTimestamp(),
         })
+
     }
     return(
-        <>
+        <ChatStyle>
             <main>
                 {menssages && menssages.map((msg, index) => (
                     <Menssage key={index} menssage={msg}/>
@@ -41,6 +42,6 @@ export const ChatRoom = () => {
                 <button>enviar</button>
                 <SignOut />
             </form>
-        </>
+        </ChatStyle>
     )
 }
